@@ -12,6 +12,7 @@ import java.io.IOException;
 
 /**
  * 全局跨域放开
+ *
  * @author Cong-Cong Liao
  * @since 2021-03-24
  **/
@@ -19,7 +20,8 @@ import java.io.IOException;
 public class OriginFilter implements Filter {
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException { }
+    public void init(FilterConfig filterConfig) throws ServletException {
+    }
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
@@ -33,5 +35,6 @@ public class OriginFilter implements Filter {
     }
 
     @Override
-    public void destroy() { }
+    public void destroy() {
+    }
 }

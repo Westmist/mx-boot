@@ -1,7 +1,8 @@
 package com.lcc.system.mapper;
 
-import com.lcc.test.entity.MxUsers;
+import com.lcc.system.entity.MxUsers;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author mingxuan
  * @since 2021-03-31
  */
+@Mapper
 public interface MxUsersMapper extends BaseMapper<MxUsers> {
 
 }

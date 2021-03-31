@@ -1,12 +1,10 @@
 package com.lcc.system.service;
 
-import com.lcc.test.entity.MxUsers;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.lcc.system.entity.MxUsers;
 
 /**
- * <p>
  * 用户表 服务类
- * </p>
  *
  * @author mingxuan
  * @since 2021-03-31

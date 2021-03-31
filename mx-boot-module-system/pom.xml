@@ -17,6 +17,12 @@
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
+        <!-- 模块间的耦合依赖 -->
+        <dependency>
+            <groupId>com.lcc.mx</groupId>
+            <artifactId>mx-boot-base-core</artifactId>
+            <version>0.1</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

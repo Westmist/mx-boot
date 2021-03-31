@@ -20,8 +20,6 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
-
-
     /**
      * 过期时间改为从配置文件获取
      */

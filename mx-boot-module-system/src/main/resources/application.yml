@@ -11,3 +11,7 @@ spring:
   redis:
     database: 5
     port: 6379
+# JWT 私钥
+encryptJWTKey: key
+# JWT Token 失效时间(秒)
+accessTokenExpireTime: 1000
