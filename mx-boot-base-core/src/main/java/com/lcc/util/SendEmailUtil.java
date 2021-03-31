@@ -17,7 +17,7 @@ import java.util.Properties;
 /**
  * @Package: com.jzkj.util
  * @ClassName: 邮件工具类
- * @Author: Congcong Liao
+ * @Author: Cong-Cong Liao
  * @CreateTime: 2021/1/19
  * @Description:
  */

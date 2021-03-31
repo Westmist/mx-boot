@@ -14,8 +14,8 @@ import java.io.IOException;
  * 自定义shiro拦截器
  * 继承shiro的认证
  *
- * @author dolyw.com
- * @date 2018/8/30 15:47
+ * @author Cong-Cong Liao
+ * @since 2021-03-24
  */
 public class JwtFilter extends BasicHttpAuthenticationFilter {
     @Override
@@ -30,7 +30,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
                 String msg = e.getMessage();
                 System.out.println(msg);
                 try {
-                    request.getRequestDispatcher("/security/errorA").forward(request,response);
+                    request.getRequestDispatcher("/security/errorA").forward(request, response);
                 } catch (ServletException ex) {
                     ex.printStackTrace();
                 } catch (IOException ex) {
@@ -42,7 +42,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
         }
         System.out.println("未携带Token");
         try {
-            request.getRequestDispatcher("/security/errorB").forward(request,response);
+            request.getRequestDispatcher("/security/errorB").forward(request, response);
         } catch (ServletException ex) {
             ex.printStackTrace();
         } catch (IOException ex) {
@@ -68,7 +68,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
         subject.login(token);
         if (subject.isAuthenticated()) {
             System.out.println("认证通过");
-        } else{
+        } else {
             System.out.println("认证失败");
         }
         return true;

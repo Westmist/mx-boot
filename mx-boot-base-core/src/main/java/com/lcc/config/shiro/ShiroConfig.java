@@ -1,5 +1,6 @@
 package com.lcc.config.shiro;
 
+import com.lcc.config.shiro.filters.JwtFilter;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.mgt.DefaultSessionManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;

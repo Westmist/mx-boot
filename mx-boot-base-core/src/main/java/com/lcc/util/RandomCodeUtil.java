@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * @Package: com.jzkj.util
  * @ClassName: 验证码工具类
- * @Author: Congcong Liao
+ * @Author: Cong-Cong Liao
  * @CreateTime: 2021/1/19
  * @Description:
  */
