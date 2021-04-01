@@ -2,7 +2,6 @@ package com.lcc.config.swagger;
 
 import com.github.xiaoymin.swaggerbootstrapui.annotations.EnableSwaggerBootstrapUI;
 import io.swagger.annotations.ApiOperation;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -19,7 +18,6 @@ import java.util.ArrayList;
  * @author Cong-Cong Liao
  * @since 2021-03-24
  */
-@Slf4j
 @Configuration
 @EnableSwagger2
 @EnableSwaggerBootstrapUI
@@ -30,7 +28,7 @@ public class SwaggerConfig {
                 .apiInfo(apiInfo()).groupName("mx-boot")
                 .select()
                 //此包路径下的类，才生成接口文档
-                .apis(RequestHandlerSelectors.basePackage("com.lcc.system.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.lcc"))
                 //加了ApiOperation注解的类，才生成接口文档
                 .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
                 .paths(PathSelectors.any())

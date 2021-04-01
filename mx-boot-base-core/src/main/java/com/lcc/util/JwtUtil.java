@@ -13,7 +13,9 @@ import java.io.UnsupportedEncodingException;
 import java.util.Date;
 
 /**
+ *
  * JAVA-JWT工具类
+ *
  * @author Wang926454
  * @date 2018/8/30 11:45
  */
@@ -42,6 +44,7 @@ public class JwtUtil {
 
     /**
      * 校验token是否正确
+     *
      * @param token Token
      * @return boolean 是否正确
      * @author Wang926454
@@ -62,6 +65,7 @@ public class JwtUtil {
 
     /**
      * 获得Token中的信息无需secret解密也能获得
+     *
      * @param token
      * @param claim
      * @return java.lang.String
@@ -80,6 +84,7 @@ public class JwtUtil {
 
     /**
      * 生成签名
+     *
      * @param account 帐号
      * @return java.lang.String 返回加密的Token
      * @author Wang926454

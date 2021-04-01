@@ -40,6 +40,11 @@ public class MxUsers implements Serializable {
     private String userNick;
 
     /**
+     * 用户角色
+     */
+    private String userRole;
+
+    /**
      * 激活状态
      */
     private Boolean activeState;

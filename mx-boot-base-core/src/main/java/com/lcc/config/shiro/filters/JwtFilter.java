@@ -28,9 +28,10 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
             } catch (Exception e) {
                 // 出现登陆异常接受传递过来的异常信息
                 String msg = e.getMessage();
-                System.out.println(msg);
                 try {
-                    request.getRequestDispatcher("/security/errorA").forward(request, response);
+                    // 传递错误消息参数转发到认证未通过接口
+                    request.setAttribute("message", msg);
+                    request.getRequestDispatcher("/security/error").forward(request, response);
                 } catch (ServletException ex) {
                     ex.printStackTrace();
                 } catch (IOException ex) {
@@ -40,9 +41,9 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
             }
             return true;
         }
-        System.out.println("未携带Token");
         try {
-            request.getRequestDispatcher("/security/errorB").forward(request, response);
+            request.setAttribute("message", "未携带Token");
+            request.getRequestDispatcher("/security/error").forward(request, response);
         } catch (ServletException ex) {
             ex.printStackTrace();
         } catch (IOException ex) {

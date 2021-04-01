@@ -14,4 +14,4 @@ spring:
 # JWT 私钥
 encryptJWTKey: key
 # JWT Token 失效时间(秒)
-accessTokenExpireTime: 600
+accessTokenExpireTime: 60

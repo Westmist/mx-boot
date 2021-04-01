@@ -1,5 +1,7 @@
 package com.lcc.config.shiro;
 
+import com.lcc.util.JwtUtil;
+import com.lcc.util.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -20,7 +22,7 @@ import javax.annotation.Resource;
 @Slf4j
 public class MyRealm extends AuthorizingRealm {
     @Resource
-    private RedisTemplate redisTemplate;
+    private RedisUtil redisUtil;
 
     /**
      * 授权管理
@@ -47,16 +49,16 @@ public class MyRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken auth) throws AuthenticationException {
         // 前端传过来的Token
         String token = (String) auth.getCredentials();
-        /*
-         * Token 校验
-         * 根据请求传过来的Token获取用户名
-         * 用户名为key 比对redis中的Token
-         */
-        if (redisTemplate.opsForValue().get(token) == null) {
-           throw new AuthenticationException("登录过期请重新登录");
+        // 校验是否存在该key
+        String realToken = (String) redisUtil.get("user:" + JwtUtil.getClaim(token, "account"));
+        if (realToken == null) {
+            throw new AuthenticationException("登录过期请重新登录！");
         }
-        // TODO Redis Token 比对
-        // Redis 存在走controller
+        // 校验key是否一致
+        if (!token.equals(realToken)) {
+            throw new AuthenticationException("Token错误！");
+        }
+        // 校验通过进入JwtFilter
         return new SimpleAuthenticationInfo(token, token, getName());
     }
 
