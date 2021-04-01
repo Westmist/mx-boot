@@ -1,8 +1,11 @@
 package com.lcc.system.controller;
 
 
+import com.lcc.system.entity.vo.MxUsersVO;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +13,7 @@ import com.lcc.api.vo.Result;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.groups.Default;
 
 /**
  * 用户表 前端控制器
@@ -23,8 +27,17 @@ public class MxUsersController {
     @Resource
     private RedisTemplate redisTemplate;
 
+    /**
+     * 用户登陆接口
+     *
+     * @param usersVO             用户VO类 执行校验
+     * @param httpServletResponse 响应
+     * @return
+     */
     @PostMapping("/login")
-    public Result login(HttpServletResponse httpServletResponse) {
+    public Result login(@RequestBody @Validated MxUsersVO usersVO, HttpServletResponse httpServletResponse) {
+
+        System.out.println(usersVO);
         // 用户校验
         if (true) {
             /**
