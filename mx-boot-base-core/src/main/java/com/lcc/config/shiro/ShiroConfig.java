@@ -64,13 +64,13 @@ public class ShiroConfig {
         LinkedHashMap<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>(16);
         filterChainDefinitionMap.put("/", "anon");
 
-        // 放开静态资源和swagger文档资源
+        // 放开swagger文档资源
         filterChainDefinitionMap.put("/doc.html", "anon");
         filterChainDefinitionMap.put("/swagger-ui.html", "anon");
         filterChainDefinitionMap.put("/swagger**/**", "anon");
         filterChainDefinitionMap.put("/v2/**", "anon");
         filterChainDefinitionMap.put("/webjars/**", "anon");
-
+        // 放开静态资源
         filterChainDefinitionMap.put("/**/*.js", "anon");
         filterChainDefinitionMap.put("/**/*.css", "anon");
         filterChainDefinitionMap.put("/**/*.html", "anon");

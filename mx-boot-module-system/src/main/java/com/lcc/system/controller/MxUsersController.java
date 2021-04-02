@@ -1,13 +1,10 @@
 package com.lcc.system.controller;
 
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.lcc.config.shiro.JwtToken;
+import com.lcc.api.vo.Result;
 import com.lcc.system.entity.MxUsers;
 import com.lcc.system.entity.vo.MxUsersVO;
 import com.lcc.system.service.IMxUsersService;
-import com.lcc.system.service.impl.MxUsersServiceImpl;
 import com.lcc.util.JwtUtil;
 import com.lcc.util.RedisUtil;
 import io.swagger.annotations.Api;
@@ -15,17 +12,12 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
-import com.lcc.api.vo.Result;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.annotation.Resource;
@@ -83,7 +75,7 @@ public class MxUsersController {
             return Result.ok("登陆成功");
         }
         log.info("账号或密码不存在。");
-        return Result.error(202, "账号或密码不存在！");
+        return Result.error(202, "账号或密码错误！");
     }
 
     @PostMapping("/test")
@@ -92,7 +84,7 @@ public class MxUsersController {
     }
 
     @RequestMapping("/error")
-    public Result<?> errorA(HttpServletRequest request) {
+    public Result<?> error(HttpServletRequest request) {
         String message = (String) request.getAttribute("message");
         return Result.error(203, message);
     }
